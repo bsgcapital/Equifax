@@ -1,0 +1,19 @@
+
+services:
+- type: web
+  name: embark-equifax-working
+  env: node
+  plan: free
+  buildCommand: "npm install"
+  startCommand: "node server.js"
+  envVars:
+  - key: CLIENT_ID
+    sync: false
+  - key: CLIENT_SECRET
+    sync: false
+  - key: SCOPE
+    value: https://api.equifax.com/business/oneview/consumer-credit/v1
+  - key: TOKEN_URL
+    value: https://api.equifax.com/oauth2/token
+  - key: BASE_URL
+    value: https://api.equifax.com/business/oneview/consumer-credit/v1
